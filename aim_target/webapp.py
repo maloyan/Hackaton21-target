@@ -9,9 +9,15 @@ import onnxruntime as ort
 # Constants
 
 DEVICE = "cpu"
-IMG_SIZE = 512
+IMG_SIZE = 128
 PORT = 8989
-
+TARGET_DICT = {
+    0: "human",
+    1: "target_human",
+    2: "target_laser",
+    3: "target_gun",
+    4: "target_tank"
+}
 # Colors
 
 
@@ -55,7 +61,7 @@ def handler(file_obj):
     output = np.argmax(output[0])
     #output = np.argmax(output.detach().cpu().numpy(), axis=1)
 
-    return [orig_image, output]
+    return [orig_image, TARGET_DICT[output]]
 
 
 # UI
@@ -84,6 +90,6 @@ iface = gr.Interface(
     server_name="0.0.0.0",
     live=False,
     allow_flagging=False,
-    allow_screenshot=False,
+    allow_screenshot=False
 )
 iface.launch()
