@@ -46,8 +46,9 @@ def eval_fn(data_loader, model, criterion, device):
             fin_targets.extend(targets.tolist())
             fin_outputs.extend(outputs.tolist())
 
-    fin_outputs = np.array(fin_outputs) > 0.5
-    acc = accuracy_score(fin_targets, fin_outputs)
+    fin_outputs = np.argmax(fin_outputs, axis=1)
+    fin_targets = np.argmax(fin_targets, axis=1)
+    acc = accuracy_score(fin_targets, fin_outputs, sample_weight = [0.4, 0.3, 0.09, 0.12, 0.06])
     print(f"ACCURACY: {acc}")
     print(classification_report(fin_targets, fin_outputs))
     return sum_loss / len(data_loader), acc
