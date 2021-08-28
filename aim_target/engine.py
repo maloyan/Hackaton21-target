@@ -1,6 +1,6 @@
 import numpy as np
 import torch
-from sklearn.metrics import accuracy_score, classification_report
+from sklearn.metrics import classification_report
 from tqdm import tqdm
 
 from aim_target.utils import compute_accuracy
