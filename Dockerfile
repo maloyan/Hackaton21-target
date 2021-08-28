@@ -9,4 +9,4 @@
  
  RUN python setup.py install 
  
- CMD ["/bin/sh", "-c", "echo \"Приложение запущено: http://0.0.0.0:8989 \"    && python aim_target/webapp.py checkpoints/128_resnet50.onnx"]
+ CMD ["/bin/sh", "-c", "echo \"Приложение запущено: http://0.0.0.0:8989 \"    && python aim_target/webapp.py checkpoints/224_efficientnet_el_pruned.onnx"]

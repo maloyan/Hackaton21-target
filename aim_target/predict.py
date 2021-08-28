@@ -20,11 +20,9 @@ model.to("cuda")
 model.eval()
 
 meta_info = pd.read_csv(config["data_csv"])
-test_data = [
-    os.path.join(config["data_path"], i)
-    for i in meta_info[meta_info["split"] == "test"].path.values
-]
-test_target = meta_info[meta_info["split"] == "test"].target.values
+meta_info = meta_info[meta_info["split"] == "test"]
+test_data = [os.path.join(config["data_path"], i) for i in meta_info.path.values]
+test_target = meta_info.target.values
 
 fin_outputs = []
 with torch.no_grad():
@@ -40,3 +38,6 @@ with torch.no_grad():
         fin_outputs.extend(outputs.tolist())
 
 compute_accuracy(test_target, fin_outputs)
+# meta_info.target = fin_outputs
+# meta_info.path = meta_info.path.apply(lambda x: x.split("/")[1])
+# meta_info[["target", "path"]].to_csv("submission.csv", index=None)
