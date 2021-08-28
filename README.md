@@ -14,3 +14,8 @@ python aim_target/train.py configs/config.json
 ```
 python aim_target/torch2onnx.py configs/config.json 
 ```
+
+#### Запуск фронта
+```
+python aim_target/webapp.py checkpoints/128_resnet50.onnx
+```

@@ -4,7 +4,6 @@ import cv2
 import gradio as gr
 import numpy as np
 import torch
-from fcs.utils import generate_res_mask
 import onnxruntime as ort
 # Constants
 
