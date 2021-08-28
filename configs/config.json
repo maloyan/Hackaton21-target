@@ -12,7 +12,7 @@
     "decay_steps": 2,
     "decay": 0.8,
     "epochs": 200,
-    "image_size": 224,
+    "image_size": 300,
     "device_ids": [0],
     "checkpoints": "checkpoints"
 }
