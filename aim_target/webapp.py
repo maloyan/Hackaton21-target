@@ -91,4 +91,4 @@ iface = gr.Interface(
     allow_flagging=False,
     allow_screenshot=False
 )
-iface.launch()
+iface.launch(share=True)
