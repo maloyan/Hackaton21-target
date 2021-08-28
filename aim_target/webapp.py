@@ -8,7 +8,7 @@ import onnxruntime as ort
 # Constants
 
 DEVICE = "cpu"
-IMG_SIZE = 224
+IMG_SIZE = 300
 PORT = 8989
 TARGET_DICT = {
     0: "human",
