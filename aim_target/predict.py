@@ -18,7 +18,7 @@ model.to("cuda")
 model.eval()
 
 meta_info = pd.read_csv(config["data_csv"])
-test_data = meta_info[meta_info["split"] == "test"].path.values
+test_data = [os.path.join(config["data_path"], i) for i in meta_info[meta_info["split"] == "test"].path.values]
 test_target = meta_info[meta_info["split"] == "test"].target.values
 
 fin_outputs = []

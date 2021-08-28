@@ -9,3 +9,8 @@ pip install -r requirements
 ```
 python aim_target/train.py configs/config.json 
 ```
+
+#### Конвертация в onnx
+```
+python aim_target/torch2onnx.py configs/config.json 
+```

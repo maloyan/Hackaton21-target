@@ -14,7 +14,7 @@ model = torch.load(
 )
 model.eval()
 
-image = torch.ones((1, 3, 512, 512))
+image = torch.ones((1, 3, config["image_size"], config["image_size"]))
 
 torch.onnx.export(
     model,
