@@ -1,5 +1,6 @@
 import json
 import sys
+import os
 
 import albumentations as A
 import pandas as pd
@@ -54,10 +55,10 @@ transforms_test = A.Compose(
 
 meta_info = pd.read_csv(config["data_csv"])
 
-train_data = meta_info[meta_info["split"] == "train"].path.values
+train_data = [os.path.join(config["data_path"], i) for i in meta_info[meta_info["split"] == "train"].path.values]
 train_target = meta_info[meta_info["split"] == "train"].target.values
 
-valid_data = meta_info[meta_info["split"] == "val"].path.values
+valid_data = [os.path.join(config["data_path"], i) for i in meta_info[meta_info["split"] == "val"].path.values]
 valid_target = meta_info[meta_info["split"] == "val"].target.values
 
 train_dataset = TargetDataset(

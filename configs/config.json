@@ -1,10 +1,11 @@
 {
     "project": "aim_target",
+    "data_path": "data",
     "data_csv": "data/meta_info.csv",
     "batch_size": 1,
     "num_workers": 4,
     "model": "resnet50",
-    "classes": 2,
+    "classes": 5,
     "device": "cuda",
     "lr": 0.0002,
     "patience": 3,
