@@ -116,6 +116,7 @@ for _ in range(config["epochs"]):
     scheduler.step(val_loss)
 
     if val_loss < best_loss:
+        print("Model saved!")
         best_loss = val_loss
         torch.save(
             model.module,
