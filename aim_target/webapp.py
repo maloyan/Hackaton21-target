@@ -8,7 +8,7 @@ import onnxruntime as ort
 # Constants
 
 DEVICE = "cpu"
-IMG_SIZE = 300
+IMG_SIZE = 380
 PORT = 8989
 TARGET_DICT = {
     0: "human",
@@ -89,6 +89,7 @@ iface = gr.Interface(
     server_name="0.0.0.0",
     live=False,
     allow_flagging=False,
-    allow_screenshot=False
+    allow_screenshot=False,
+    enable_queue=True
 )
 iface.launch(share=True)

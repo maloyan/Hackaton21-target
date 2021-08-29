@@ -23,4 +23,5 @@ torch.onnx.export(
     input_names=["image"],
     output_names=["output"],
     dynamic_axes={"image": {0: "batch_size"}, "output": {0: "batch_size"}},
+    opset_version=11
 )
